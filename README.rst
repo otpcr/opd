@@ -104,8 +104,6 @@ COMMANDS
 
 ::
 
-    list of commands
-
     cfg - irc configuration
     cmd - commands
     dpl - sets display items
