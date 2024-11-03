@@ -12,7 +12,7 @@ import sys
 "defines"
 
 
-NAME = "fop"
+NAME = "opd"
 
 
 "utilities"

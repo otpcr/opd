@@ -18,11 +18,11 @@ import _thread
 sys.path.insert(0, os.getcwd())
 
 
-from fop.command import NAME, Config, Commands, command, laps, parse, scanner
-from fop.modules import face
-from fop.object  import Object
-from fop.persist import Workdir, skel
-from fop.runtime import Client, Errors, Event, later, launch
+from opd.command import NAME, Config, Commands, command, laps, parse, scanner
+from opd.modules import face
+from opd.object  import Object
+from opd.persist import Workdir, skel
+from opd.runtime import Client, Errors, Event, later, launch
 
 
 "defines"
