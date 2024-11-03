@@ -115,7 +115,9 @@ class Fetcher(Object):
                     write(fed, ident(fed))
                 result.append(fed)
             setattr(self.seen, feed.rss, urls)
-            self.seenfn = write(self.seen, self.seenfn)
+            if not self.seenfn:
+                self.seenfn = ident(self.seen)
+            write(self.seen, self.seenfn)
         if silent:
             return counter
         txt = ''
@@ -135,7 +137,7 @@ class Fetcher(Object):
         return thrs
 
     def start(self, repeat=True):
-        self.seenfn = last(self.seen)
+        last(self.seen)
         if repeat:
             repeater = Repeater(300.0, self.run)
             repeater.start()

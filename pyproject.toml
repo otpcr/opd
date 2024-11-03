@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "opd"
 description = "Original Programmer Daemon"
-version = "300"
+version = "301"
 authors = [
     {name = "Bart Thate", email = "bthate@dds.nl" },
 ]
