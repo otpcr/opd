@@ -22,4 +22,4 @@ def popen(txt):
 "rutime"
 
 
-os.popen(r"tar zcvf nixm.tar.gz --exclude='nixm/\.git/*' nixm")
+os.popen(r"tar zcvf opd.tar.gz --exclude='opd/\.git/*' opd")

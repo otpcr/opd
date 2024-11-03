@@ -9,7 +9,7 @@ SYNOPSIS
 
 ::
 
-    opdctl  <cmd> [key=val] [key==val]
+    opdctl <cmd> [key=val] [key==val]
 
 
 DESCRIPTION
