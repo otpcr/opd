@@ -26,8 +26,8 @@ dev = []
 
 [project.urls]
 "home" = "https://pypi.org/project/opd"
-"bugs" = "https://github.com/bthate/opd/issues"
-"source" = "https://github.com/bthate/opd"
+"bugs" = "https://github.com/otpcr/opd/issues"
+"source" = "https://github.com/otpcr/opd"
 
 
 [tool.setuptools]
@@ -41,4 +41,3 @@ packages = [
    "opd",
    "opd.modules"
 ]
-zip-safe = true

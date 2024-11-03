@@ -106,24 +106,24 @@ COMMANDS
 
     list of commands
 
-    | ``cfg`` - irc configuration
-    | ``cmd`` - commands
-    | ``dpl`` - sets display items
-    | ``err`` - show errors
-    | ``exp`` - export opml (stdout)
-    | ``imp`` - import opml
-    | ``log`` - log text
-    | ``mre`` - display cached output
-    | ``now`` - show genocide stats
-    | ``pwd`` - sasl nickserv name/pass
-    | ``rem`` - removes a rss feed
-    | ``res`` - restore deleted feeds
-    | ``req`` - reconsider
-    | ``rss`` - add a feed
-    | ``syn`` - sync rss feeds
-    | ``tdo`` - add todo item
-    | ``thr`` - show running threads
-    | ``upt`` - show uptime
+    cfg - irc configuration
+    cmd - commands
+    dpl - sets display items
+    err - show errors
+    exp - export opml (stdout)
+    imp - import opml
+    log - log text
+    mre - display cached output
+    now - show genocide stats
+    pwd - sasl nickserv name/pass
+    rem - removes a rss feed
+    res - restore deleted feeds
+    req - reconsider
+    rss - add a feed
+    syn - sync rss feeds
+    tdo - add todo item
+    thr - show running threads
+    upt - show uptime
 
 
 FILES

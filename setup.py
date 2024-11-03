@@ -12,6 +12,5 @@ if __name__ == "__main__":
     setuptools.setup(scripts=[
         'bin/opdctl',
         'bin/opd',
-        'bin/opdc',
         'bin/opds'
     ])
