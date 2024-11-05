@@ -25,14 +25,10 @@ from opd.persist import Workdir, skel
 from opd.runtime import Client, Errors, Event, later, launch
 
 
-"defines"
-
-
-Workdir.wdr = os.path.expanduser(f"~/.{NAME}")
-
-
 cfg = Config()
 cfg.index = 0
+
+
 face.rss.DEBUG = True
 
 
@@ -64,9 +60,6 @@ param.tdo = ["mekker", ""]
 param.ver = [""]
 
 
-"cli"
-
-
 class CLI(Client):
 
     def __init__(self):
@@ -76,9 +69,6 @@ class CLI(Client):
     def raw(self, txt):
         if "v" in cfg.opts:
             print(txt)
-
-
-"utilities"
 
 
 def banner():
@@ -126,9 +116,6 @@ def wrap(function):
     finally:
         if old3:
             termios.tcsetattr(sys.stdin.fileno(), termios.TCSADRAIN, old3)
-
-
-"runtime"
 
 
 def main():

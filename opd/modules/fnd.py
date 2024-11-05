@@ -1,5 +1,5 @@
-# This file is placed in the Public Domain.[B
-# pylint: disable=C,W0105,W0622
+# This file is placed in the Public Domain.
+# pylint: disable=C,W0622
 
 
 "find"
@@ -11,9 +11,6 @@ import time
 from ..command import laps
 from ..object  import format
 from ..persist import find, fntime, long, skel, types
-
-
-"commands"
 
 
 def fnd(event):

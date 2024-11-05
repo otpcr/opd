@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,R,W0105,W0719,E1101
+# pylint: disable=C,R,W0105,E1101
 
 
 "persist to disk"
@@ -13,19 +13,13 @@ import time
 import _thread
 
 
-from .object import Object, dump, load, search, update
-
-
-"defines"
+from .object import JSONError, Object, dump, load, search, update
 
 
 cachelock = _thread.allocate_lock()
 disklock  = _thread.allocate_lock()
 lock      = _thread.allocate_lock()
 p         = os.path.join
-
-
-"workdir"
 
 
 class Workdir:
@@ -63,9 +57,6 @@ def whitelist(clz) -> None:
     Workdir.fqns.append(fqn(clz))
 
 
-"cache"
-
-
 class Cache:
 
     objs = {}
@@ -87,9 +78,6 @@ class Cache:
                 if match not in key:
                     continue
                 yield Cache.objs.get(key)
-
-
-"utilities"
 
 
 def cdir(pth) -> str:
@@ -204,7 +192,7 @@ def fetch(obj, pth) -> None:
             try:
                 update(obj, load(ofile))
             except json.decoder.JSONDecodeError as ex:
-                raise Exception(pth) from ex
+                raise JSONError(pth) from ex
 
 
 def write(obj, pth) -> str:
@@ -217,9 +205,6 @@ def sync(obj, pth) -> None:
         cdir(pth)
         with open(pth, 'w', encoding='utf-8') as ofile:
             dump(obj, ofile, indent=4)
-
-
-"interface"
 
 
 def __dir__():

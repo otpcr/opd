@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,W0105
+# pylint: disable=C
 
 
 "running threads."
@@ -9,17 +9,8 @@ import threading
 import time
 
 
-from ..command import laps
+from ..command import STARTTIME, laps
 from ..object  import Object, update
-
-
-"defines"
-
-
-STARTTIME = time.time()
-
-
-"commands"
 
 
 def thr(event):

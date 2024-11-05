@@ -12,7 +12,10 @@ from opd.persist import pidfile, pidname
 from opd.runtime import errors
 
 
-"runtime"
+def wrapped():
+    wrap(main)
+    for text in errors():
+        print(text)
 
 
 def main():

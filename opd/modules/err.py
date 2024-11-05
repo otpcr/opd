@@ -1,14 +1,11 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,W0105
+# pylint: disable=C
 
 
 "show errors"
 
 
 from ..runtime import Errors
-
-
-"commands"
 
 
 def err(event):

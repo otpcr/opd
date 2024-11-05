@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,R,W0105,W0201,W0613,w0622,W0718,E1102
+# pylint: disable=C,R,W0105,W0622,W0718,E1102
 
 
 "internet relay chat"
@@ -22,9 +22,6 @@ from ..persist import Cache, ident, last, write
 from ..runtime import Event, Reactor, later, launch
 
 
-"defines"
-
-
 IGNORE = ["PING", "PONG", "PRIVMSG"]
 output = None
 saylock = _thread.allocate_lock()
@@ -44,9 +41,6 @@ def init():
     irc.events.ready.wait()
     debug(f'{format(Config, skip="edited,password")}')
     return irc
-
-
-"config"
 
 
 class Config(Object):
@@ -77,9 +71,6 @@ class Config(Object):
         self.username = Config.username
 
 
-"wrapper"
-
-
 class TextWrap(textwrap.TextWrapper):
 
     def __init__(self):
@@ -93,9 +84,6 @@ class TextWrap(textwrap.TextWrapper):
 
 
 wrapper = TextWrap()
-
-
-"output"
 
 
 class Output:
@@ -158,9 +146,6 @@ class Output:
         if chan in Output.cache:
             return len(getattr(Output.cache, chan, []))
         return 0
-
-
-"irc"
 
 
 class IRC(Reactor, Output):
@@ -511,9 +496,6 @@ class IRC(Reactor, Output):
         self.events.ready.wait()
 
 
-"callbacks"
-
-
 def cb_auth(bot, evt):
     bot.docommand(f'AUTHENTICATE {bot.cfg.password}')
 
@@ -590,7 +572,7 @@ def cb_quit(bot, evt):
 
 def cfg(event):
     config = Config()
-    last(config)
+    path = last(config)
     if not event.sets:
         event.reply(
                     format(
@@ -601,7 +583,7 @@ def cfg(event):
                    )
     else:
         edit(config, event.sets)
-        write(config)
+        write(config, path)
         event.reply('ok')
 
 

@@ -1,34 +1,23 @@
 #!/usr/bin/env python3
 # This file is placed in the Public Domain.
-# pylint: disable=C,W0105,W0611,W0718
+# pylint: disable=C,W0718
 
 
 "console"
 
 
-import os
-import readline
+import readline # pylint: disable=W0611
 import sys
 import termios
 import time
 
 
-sys.path.insert(0, os.getcwd())
-
-
-from opd.persist import Workdir
 from opd.command import NAME, Config, command, forever, parse, scanner
 from opd.modules import face
-from opd.runtime import Client, Errors, Event, errors, later
-
-
-"defines"
+from opd.runtime import Client, Event, errors, later
 
 
 cfg  = Config()
-
-
-"classes"
 
 
 class Console(Client):
@@ -49,9 +38,6 @@ class Console(Client):
 
     def raw(self, txt):
         print(txt)
-
-
-"utilities"
 
 
 def banner():
@@ -78,8 +64,9 @@ def wrap(func):
         print(txt)
 
 
-"runtime"
-
+def wrapped():
+    wrap(main)
+    
 
 def main():
     parse(cfg, " ".join(sys.argv[1:]))
@@ -94,10 +81,6 @@ def main():
     csl.start()
     forever()
 
-
-def wrapped():
-    wrap(main)
-    
 
 if __name__ == "__main__":
     wrapped()

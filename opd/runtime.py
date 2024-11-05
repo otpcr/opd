@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,R,W0105,W0212,W0718
+# pylint: disable=C,R,W0212,W0718
 
 
 "errors,reactor,threads,timers"
@@ -10,9 +10,6 @@ import threading
 import time
 import traceback
 import _thread
-
-
-"errors"
 
 
 class Errors:
@@ -39,9 +36,6 @@ def later(exc) -> None:
     fmt = fmat(excp)
     if fmt not in Errors.errors:
         Errors.errors.append(fmt)
-
-
-"threads"
 
 
 class Thread(threading.Thread):
@@ -102,9 +96,6 @@ def name(obj) -> str:
     return None
 
 
-"reactor"
-
-
 class Reactor:
 
     def __init__(self):
@@ -153,9 +144,6 @@ class Client(Reactor):
         raise NotImplementedError
 
 
-"event"
-
-
 class Event:
 
     def __init__(self):
@@ -181,9 +169,6 @@ class Event:
         self._ready.wait()
         if self._thr:
             self._thr.join()
-
-
-"timers"
 
 
 class Timer:
@@ -224,9 +209,6 @@ class Repeater(Timer):
         super().run()
 
 
-"interface"
-
-
 def __dir__():
     return (
         'Client',
@@ -239,5 +221,5 @@ def __dir__():
         'errors',
         'later',
         'launch',
-        'name',
+        'name'
     )

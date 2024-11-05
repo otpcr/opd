@@ -1,5 +1,5 @@
 # This file is placed in the Public Domain.
-# pylint: disable=C,R,W0105,W0622
+# pylint: disable=C,R,W0622
 
 
 "a clean namespace"
@@ -8,7 +8,9 @@
 import json
 
 
-"classes"
+class JSONError(Exception):
+
+    pass
 
 
 class Object:
@@ -27,15 +29,6 @@ class Object:
 
     def __str__(self) -> str:
         return str(self.__dict__)
-
-
-class Obj(Object):
-
-    def __getattr__(self, key):
-        return self.__dict__.get(key, "")
-
-
-"methods"
 
 
 def construct(obj, *args, **kwargs) -> None:
@@ -145,9 +138,6 @@ def values(obj) -> list:
     return obj.__dict__.values()
 
 
-"decoder"
-
-
 class ObjectDecoder(json.JSONDecoder):
 
     def __init__(self, *args, **kwargs):
@@ -179,9 +169,6 @@ def loads(string, *args, **kw) -> Object:
     kw["cls"] = ObjectDecoder
     kw["object_hook"] = hook
     return json.loads(string, *args, **kw)
-
-
-"encoder"
 
 
 class ObjectEncoder(json.JSONEncoder):
@@ -223,11 +210,9 @@ def dumps(*args, **kw) -> str:
     return json.dumps(*args, **kw)
 
 
-"interface"
-
-
 def __dir__():
     return (
+        'JSONError',
         'Object',
         'construct',
         'dumps',
@@ -238,5 +223,5 @@ def __dir__():
         'match',
         'search',
         'update',
-        'values',
+        'values'
     )
