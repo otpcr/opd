@@ -14,7 +14,7 @@ import sys
 
 
 IGNORE = ["cli", "console", "daemon", "service", "modules/srv"]
-NAME = "fop"
+NAME = "opd"
 
 
 "utilities"
@@ -46,7 +46,7 @@ def main():
     popen(f'grep -R "import sys" {NAME}/*.py {NAME}/modules/*.py')
     #popen(f'grep -R "import inspect" {NAME}/*.py {NAME}/modules/*.py')
     #popen(f'grep -R "getpass" {NAME}/*.py {NAME}/modules/*.py')
-    popen(f'grep -R {NAME} {NAME}')
+    popen(f'grep -R "{NAME} " {NAME}')
 
 
 if __name__ == "__main__":
