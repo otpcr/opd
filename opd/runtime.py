@@ -153,10 +153,10 @@ class Event:
         self.type   = "event"
         self.txt    = ""
 
-    def __getattr__(self, key) -> "":
+    def __getattr__(self, key) -> str:
         return self.__dict__.get(key, "")
 
-    def __str__(self) -> "":
+    def __str__(self) -> str:
         return str(self.__dict__)
 
     def ready(self) -> None:
