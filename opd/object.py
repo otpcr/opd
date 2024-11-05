@@ -8,11 +8,6 @@
 import json
 
 
-class JSONError(Exception):
-
-    pass
-
-
 class Object:
 
     def __contains__(self, key):
@@ -136,6 +131,11 @@ def update(obj, data) -> None:
 
 def values(obj) -> list:
     return obj.__dict__.values()
+
+
+class JSONError(Exception):
+
+    pass
 
 
 class ObjectDecoder(json.JSONDecoder):
